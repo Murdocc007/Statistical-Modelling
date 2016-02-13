@@ -49,7 +49,7 @@ test <- Data[-train_ind, ]
 attach(train)
 
 #creating the model
-model=lda(Age~.,data=train)
+model=lda(Age~.-Rings,data=train)
 #predicting the values
 model.predict=predict(model,test)
 table(model.predict$class,test$Age)
@@ -57,7 +57,7 @@ table(model.predict$class,test$Age)
 mean(model.predict$class==test$Age)
 
 #creating the model
-model=qda(Age~.,data=train)
+model=qda(Age~.-Rings,data=train)
 #predicting the values
 model.predict=predict(model,test)
 table(model.predict$class,test$Age)
