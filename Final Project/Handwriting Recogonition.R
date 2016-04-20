@@ -8,7 +8,7 @@ validation <- writing.data[-train_ind, ]
 
 writing.data$label=as.factor(writing.data$label)
 principalComps <- prcomp( ~. , data = train)  #retrieve PCs
-num.of.comp.train = 50
+num.of.comp.train = 35
 pca_train.rotation <- principalComps$rotation
 pca_train.rotation <- pca_train.rotation[,1:num.of.comp.train]
 trainingPRC <- as.matrix(train) %*% pca_train.rotation  #apply PCs to training data
